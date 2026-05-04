@@ -79,7 +79,7 @@ source:
   source_repo: ResearAI/NLPCC-2026-Task9-AISB
   source_commit: b6b7527a226ca7328697156608571f2cb7dcda3a
 download:
-  provider: github_release
+  provider: local_download
   repo: ResearAI/NLPCC-2026-Task9-AISB
   tag: benchstore-assets-2026-04-30-pilot
   asset_name: aisb.b7.multimodal_fusion-v0.3.0.zip
@@ -87,8 +87,8 @@ download:
   source_url: https://github.com/ResearAI/NLPCC-2026-Task9-AISB/tree/main/benchmarks/aisb/B7_MultimodalFusion
   archive_type: zip
   local_dir_name: aisb.b7.multimodal_fusion
-  sha256: 1d64b497e341a5a72489d520a2ab3d099acf681f3ea6417bbdb28f900fff2e32
-  size_bytes: 160705
+  sha256: 05d33429578dd75faa90ff572b32a116942893d54d0a19a42a00d5566bd20585
+  size_bytes: 160820
   published_at: '2026-04-30T00:00:00Z'
   asset_status: built_local_not_published
 dataset_download:
@@ -134,6 +134,14 @@ launch_profiles:
   one_click_prompt: Start AISB B7 from the installed BenchStore package. Initialize the public-dev workspace,
     inspect AGENT.md and README.md, run the baseline or your method, evaluate locally, validate/package
     the submission, and record any release-gate risks in logs/experiment_log.jsonl.
+  setup_skills:
+    resource_links:
+    - https://huggingface.co/datasets/MMMU/MMMU_Pro
+    - https://openrouter.ai/models
+    try_commands:
+    - pip install openai pillow
+    - huggingface-cli download MMMU/MMMU_Pro --repo-type dataset
+    - 'curl -H "Authorization: Bearer $OPENROUTER_API_KEY" https://openrouter.ai/api/v1/models'
 paper:
   venue: AISB
   year: 2026

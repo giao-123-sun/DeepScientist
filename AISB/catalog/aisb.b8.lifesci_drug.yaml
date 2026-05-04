@@ -82,7 +82,7 @@ source:
   source_repo: ResearAI/NLPCC-2026-Task9-AISB
   source_commit: b6b7527a226ca7328697156608571f2cb7dcda3a
 download:
-  provider: github_release
+  provider: local_download
   repo: ResearAI/NLPCC-2026-Task9-AISB
   tag: benchstore-assets-2026-04-30-pilot
   asset_name: aisb.b8.lifesci_drug-v0.1.1.zip
@@ -137,6 +137,14 @@ launch_profiles:
   one_click_prompt: Start AISB B8 from the installed BenchStore package. Initialize the public-dev workspace,
     inspect AGENT.md and README.md, run the baseline or your method, evaluate locally, validate/package
     the submission, and record any release-gate risks in logs/experiment_log.jsonl.
+  setup_skills:
+    resource_links:
+    - https://tdcommons.ai/benchmark/admet_group/
+    - https://www.rdkit.org/docs/GettingStartedInPython.html
+    try_commands:
+    - pip install numpy pandas scikit-learn
+    - pip install rdkit-pypi || echo 'RDKit optional — use Morgan FP via sklearn if unavailable'
+    - pip install xgboost || echo 'XGBoost optional'
 paper:
   venue: AISB
   year: 2026

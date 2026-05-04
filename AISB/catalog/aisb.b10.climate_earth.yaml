@@ -80,7 +80,7 @@ source:
   source_repo: ResearAI/NLPCC-2026-Task9-AISB
   source_commit: b6b7527a226ca7328697156608571f2cb7dcda3a
 download:
-  provider: github_release
+  provider: local_download
   repo: ResearAI/NLPCC-2026-Task9-AISB
   tag: benchstore-assets-2026-04-30-pilot
   asset_name: aisb.b10.climate_earth-v0.1.0.zip
@@ -135,6 +135,16 @@ launch_profiles:
   one_click_prompt: Start AISB B10 from the installed BenchStore package. Initialize the public-dev workspace,
     inspect AGENT.md and README.md, run the baseline or your method, evaluate locally, validate/package
     the submission, and record any release-gate risks in logs/experiment_log.jsonl.
+  setup_skills:
+    resource_links:
+    - https://github.com/google-research/weatherbench2
+    - https://weatherbench2.readthedocs.io/en/latest/data-guide.html
+    - https://sites.research.google/weatherbench/
+    try_commands:
+    - pip install xarray zarr gcsfs scipy
+    - python -c "import xarray as xr; ds=xr.open_zarr('gs://weatherbench2/datasets/era5/1959-2022_6h_64x32.zarr');
+      print(ds.data_vars)"
+    - 'pip install gcsfs  # if GCS access fails, retry after upgrading gcsfs'
 paper:
   venue: AISB
   year: 2026
