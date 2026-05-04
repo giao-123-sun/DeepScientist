@@ -79,11 +79,11 @@ source:
   source_repo: ResearAI/NLPCC-2026-Task9-AISB
   source_commit: b6b7527a226ca7328697156608571f2cb7dcda3a
 download:
-  provider: local_download
+  provider: github_release
   repo: ResearAI/NLPCC-2026-Task9-AISB
   tag: benchstore-assets-2026-04-30-pilot
   asset_name: aisb.b6.research_process-v0.1.0.zip
-  url: http://localhost:8080/aisb.b6.research_process-v0.1.0.zip
+  url: https://github.com/giao-123-sun/DeepScientist/releases/download/aisb-v0.0.1/aisb.b6.research_process-v0.1.0.zip
   source_url: https://github.com/ResearAI/NLPCC-2026-Task9-AISB/tree/main/benchmarks/aisb/B6_ResearchProcess
   archive_type: zip
   local_dir_name: aisb.b6.research_process
